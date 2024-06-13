@@ -16,23 +16,27 @@ import $ from 'jquery';
 import 'slick-carousel/slick/slick';
 import { Slider } from './components/bannerSlider';
 import axios from 'axios';
+import DCIOptions from './components/dentalChairOptions';
 
 export default function LandingPage(){
-  const [transformValues, setTransformValues] = useState({
-    translateX: 0,
-    translateY: 0,
-    rotateX: 0,
-    rotateY: 0,
-    skewX: 0,
-    skewY: 0
-  });
-
   const history = useNavigate();
   const [isLoading, setIsLoading] = useState(false)
   const [data, setData] = useState([]);
   const [show, setIsShow] = useState(false)
-  const [showComprehensive, setIsShowComprehensive] = useState(false)
+  const [showOptions, setShowOptions] = useState(false)
   const [category, setCategory] = useState("")
+
+  const showOptionModal = () => {
+    setShowOptions(true)
+  }
+
+  const hideOptionModal = () => {
+    setShowOptions(false)
+  }
+
+  const showOptionSelector = () => {
+    showOptionModal()
+  }
 
   const showModal = () => {
     setIsShow(true);
@@ -90,9 +94,9 @@ export default function LandingPage(){
     fetchData();
   }, []);
 
-  useEffect(() => {
-    setIsLoading(false)
-  }, [data])
+  // useEffect(() => {
+  //   setIsLoading(false)
+  // }, [data])
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -199,32 +203,27 @@ export default function LandingPage(){
         <div className='flex flex-col justify-center items-center'>
           <h1 className='section-header'>Our catalogue</h1>
           <p className='section-p'>Explore our comprehensive catalogue of medical and dental equipment at Transform-MDS.</p>
-          <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 mt-12'>
-            <div onClick={() => { getAllCatalogue("general") }} className='card gap-4 cursor-pointer'>
+          <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-12'>
+            <div onClick={() => showOptionSelector() } className='card gap-4 cursor-pointer'>
               <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>DCI Chairs</h1>
+              <h1 className='section-link-title'>Dental Chairs</h1>
               <p>Explore our extensive range of budget-friendly dental chairs to support your dental services.</p>
             </div>
-            <div onClick={() => { getAllCatalogue("comprehensive") }} className='card gap-4 cursor-pointer'>
+            <div onClick={() => { getAllCatalogue("autoclave") }} className='card gap-4 cursor-pointer'>
               <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>Digital Autoclaves/Steam Sterilizers</h1>
+              <h1 className='section-link-title'>Autoclaves</h1>
               <p>Explore our extensive range of budget-friendly dental chairs to support your practice.</p>
+            </div>
+            <div onClick={() => { getAllCatalogue("xray") }} className='card gap-4 cursor-pointer'>
+              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
+              <h1 className='section-link-title'>X-Ray Machines</h1>
+              <p>Explore our extensive range of budget-friendly products to support your medical and dental services.</p>
             </div>
             <div onClick={() => { getAllCatalogue("other") }} className='card gap-4 cursor-pointer'>
               <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
               <h1 className='section-link-title'>Other Equipment</h1>
-              <p>Explore our extensive range of budget-friendly products to support your medical and dental services.</p>
-            </div>
-            {/* <div onClick={() => { getAllCatalogue("comprehensive") }} className='card gap-4 cursor-pointer'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>Supplies</h1>
               <p>Explore our extensive range of budget-friendly medical and dental supplies to support your medical and dental services.</p>
-            </div> */}
-            {/* <div className='card gap-4'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>Oral Surgery</h1>
-              <p>Release sheets containing passages more recently unchange easy versions and release software.</p>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
@@ -354,6 +353,7 @@ export default function LandingPage(){
       </div>
       <Footer/>
       <ImageSlider show={show} handleClose={hideModal} category={category}/>
+      <DCIOptions show={showOptions} handleClose={hideOptionModal} setAllCatalogue={getAllCatalogue} />
     </main>
     }
     

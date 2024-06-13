@@ -1,8 +1,11 @@
 import React from "react";
 import '../index.scss'
-import Image1 from "../assets/general_catalogue/12.png"
-import Image2 from "../assets/general_catalogue/17.png"
-import Image3 from "../assets/general_catalogue/7.png"
+import Image1 from "../assets/hero_slides/1.png"
+import Image2 from "../assets/hero_slides/2.png"
+import Image3 from "../assets/hero_slides/3.png"
+import Image4 from "../assets/hero_slides/4.png"
+import Image5 from "../assets/hero_slides/5.png"
+
 class Slide extends React.Component {
   constructor(props) {
     super(props);
@@ -22,16 +25,19 @@ class Slide extends React.Component {
 
 let slides = [
   {
-    background: Image1,
-    text: "Road"
+    background: Image1
   },
   {
-    background: Image2,
-    text: "America"
+    background: Image2
   },
   {
-    background: Image3,
-    text: "Pieapple"
+    background: Image3
+  },
+  {
+    background: Image4
+  },
+  {
+    background: Image5
   }
 ];
 
@@ -92,7 +98,6 @@ export class Slider extends React.Component {
             return (
               <Slide
                 background={slide.background}
-                text={slide.text}
                 active={index === this.state.activeSlide}
               />
             );

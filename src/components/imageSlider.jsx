@@ -8,17 +8,23 @@ export default function ImageSlider({handleClose,  show, category}) {
   let images;
 
   switch(category) {
-    case "general":
-      images = importAll(require.context('../assets/general_catalogue', false, /\.(png|jpe?g|svg)$/));
+    case "autoclave":
+      images = importAll(require.context('../assets/autoclaves', false, /\.(png|jpe?g|svg)$/));
       break;
-    case "comprehensive":
-      images = importAll(require.context('../assets/comprehensive_product_catalogue', false, /\.(png|jpe?g|svg)$/));
+    case "xray":
+      images = importAll(require.context('../assets/xray', false, /\.(png|jpe?g|svg)$/));
+      break;
+    case "dci":
+      images = importAll(require.context('../assets/dci_chairs', false, /\.(png|jpe?g|svg)$/));
+      break;
+    case "care":
+      images = importAll(require.context('../assets/care_chairs', false, /\.(png|jpe?g|svg)$/));
       break;
     case "other":
-      images = importAll(require.context('../assets/other_catalogue', false, /\.(png|jpe?g|svg)$/));
+      images = importAll(require.context('../assets/other_equipment', false, /\.(png|jpe?g|svg)$/));
       break;
     default:
-      images = importAll(require.context('../assets/general_catalogue', false, /\.(png|jpe?g|svg)$/));
+      images = importAll(require.context('../assets/dci_chairs', false, /\.(png|jpe?g|svg)$/));
       break;
   }
  

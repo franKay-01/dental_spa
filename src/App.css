@@ -693,6 +693,23 @@ div#slider-home .carousel-item::before {
   background: rgba(0, 0, 0, 0.6);
 }
 
+.block {
+  display: block;
+}
+
+.accordion-border {
+  border: solid 2px gray;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.accordion-body-bg{
+  background: #ececec;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
 .modal-main {
   border-radius: 5px;
   position: fixed;
