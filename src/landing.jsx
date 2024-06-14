@@ -67,7 +67,7 @@ export default function LandingPage(){
   useEffect(() => {
     const fetchData = async () => {
       const sheetId = '1N6E4SXmY38agoGfr23YDg98wZlB2U_Z4d8xDevQlPM8';
-      const apiKey = 'AIzaSyCtsfiTL9DQGycRaHn-I9NVjcVFDwg7IZ0';
+      const apiKey = process.env.REACT_APP_MASTER_KEY;
       const range = 'Sheet1';
       
       try {
