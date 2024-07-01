@@ -157,48 +157,33 @@ export default function LandingPage(){
       <Loader/>
       :
       <main className="page-wrapper">
-      <div className='relative'>
-        <Navbar/>
-        <Slider />
-        {/* <div className="scroll-down-block">
-          <a href="#" className="scroll-down-inner w-inline-block rotate-180">
-            <img src={ArrowImg} alt="Arrow" className="w-6 h-6 angle-down-icon dtransform"/>
-          </a>
-        </div> */}
-        <div className='flex flex-col lg:flex-row md:flex-row gap-4'>
-          <div className='hero-content-inner'>
-            <h1 className='hero-content-header in-down mb-4'>Welcome to Transform-MDS.</h1>
-            <h1 className='hero-content-header-sub hero-content-header-sub-alt in-down mb-8'>Your solution for all medical and dental equipment needs. Our
-              catalogue includes the latest and highest-quality products, ensuring you have the most current and
-              reliable tools for your practice.  
-            </h1>
-            <a target="blank" href="https://calendly.com/thekid0450/book-consult" className='button-green-primary in-down'>Dental Solution</a>
+        <div className='relative'>
+          <Navbar/>
+          <Slider />
+          {/* <div className="scroll-down-block">
+            <a href="#" className="scroll-down-inner w-inline-block rotate-180">
+              <img src={ArrowImg} alt="Arrow" className="w-6 h-6 angle-down-icon dtransform"/>
+            </a>
+          </div> */}
+          <div className='flex flex-col lg:flex-row md:flex-row gap-4 invisible'>
+            <div className='hero-content-inner'>
+              <h1 className='hero-content-header in-down mb-4'>Welcome to Transform-MDS.</h1>
+              <h1 className='hero-content-header-sub hero-content-header-sub-alt in-down mb-8'>
+              Your solution for all medical and dental equipment needs. Our
+                catalogue includes the latest and highest-quality products, ensuring you have the most current and
+                reliable tools for your practice.  
+              </h1>
+            </div>
           </div>
+        </div>
+      <div className='service-section'>
+        <div className='flex flex-col justify-center items-center'>
+          <h1 className='section-header'>Welcome to Transform-MDS.</h1>
+          <p className='section-p'>Your solution for all medical and dental equipment needs. Our
+                catalogue includes the latest and highest-quality products, ensuring you have the most current and
+                reliable tools for your practice.  </p>
         </div>
       </div>
-      {/* <div className='service-section'>
-        <div className='flex flex-col justify-center items-center'>
-          <h1 className='section-header'>Enjoy all dental service indentus chamber</h1>
-          <p className='section-p'>The release sheets containing passages and more recently unchanged easy versions release software.</p>
-          <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 gap-4 mt-12'>
-            <div className='card gap-4 cursor-pointer'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>Oral Surgery</h1>
-              <p>Release sheets containing passages more recently unchange easy versions and release software.</p>
-            </div>
-            <div className='card gap-4'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>Oral Surgery</h1>
-              <p>Release sheets containing passages more recently unchange easy versions and release software.</p>
-            </div>
-            <div className='card gap-4'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>Oral Surgery</h1>
-              <p>Release sheets containing passages more recently unchange easy versions and release software.</p>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className='about-us-section m-auto flex justify-center'>
         <div className='flex flex-col justify-center items-center'>
           <h1 className='section-header'>Our catalogue</h1>
@@ -230,7 +215,7 @@ export default function LandingPage(){
       <div className='appointment-section m-auto flex justify-center'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-2 gap-4'>
           <div className='appointment-form-block'>
-            <h1 className='section-header section-header-alt'>Book an appointment</h1>
+            <h1 className='section-header section-header-alt'>Visit our showrooms</h1>
             <p className='section-p section-header-alt'>Schedule an appointment with us today by selecting a convenient time, and our team will confirm your booking promptly.</p>
             
             <a target="blank" href="https://calendly.com/thekid0450/book-consult" className='flex flex-row gap-4 button-green-primary justify-between mt-8'>
@@ -246,7 +231,7 @@ export default function LandingPage(){
           
         </div>
       </div>
-      <div className='about-us-section m-auto flex justify-center'>
+      {/* <div className='about-us-section m-auto flex justify-center'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8'>
           <div className="hero-image-inner flex justify-center items-center p-4">
             <img className="hero-left-image angle-down-icon dtransform" src={HourImage} alt="Hero Image"/>
@@ -266,8 +251,7 @@ export default function LandingPage(){
             </a>
           </div>
         </div>
-      </div>
-     
+      </div> */}
       
       <div className='working-hours-section'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 relative m-auto'>

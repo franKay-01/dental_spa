@@ -13,7 +13,6 @@ export default function BlogPage(){
   const location = useLocation();
 
   const formatText = (text) => {
-    // Replace \n with <br />
     return text.split('\n').map((item, index) => (
       <React.Fragment key={index}>
         {item}

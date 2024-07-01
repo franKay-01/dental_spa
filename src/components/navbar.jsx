@@ -1,7 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import Logo from "../logo_alt.png"
+import Logo from "../logo.png"
 import PhoneImg from "../assets/phone.png"
 
 const navigation = [
@@ -51,11 +51,6 @@ export default function Navbar() {
                   <img src={PhoneImg} className="w-7 h-7" alt="phone" />
                   <h1 className="hero-content-header-sub">+233 501 289 226</h1>
                 </div>
-                <a target="blank" href="https://calendly.com/thekid0450/book-consult" spy={true} smooth={true}
-                  className={"button-green-primary button-margin-left"}
-                >
-                  <span className='button-text'>Book an appointment</span>
-                </a>
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ body {
   font-size: 68px;
   font-weight: 600;
   line-height: 72px;
-  color: #fff;
+  color: #000;
 }
 
 @-webkit-keyframes fadeInDown {
@@ -95,14 +95,14 @@ body {
   z-index: 999;
   overflow: hidden;
   padding-top: 40px;
-  padding-bottom: 130px;
+  padding-bottom: 80px;
 }
 
 .working-hours-section {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding-top: 50px;
+  padding-top: 10px;
   padding-bottom: 50px;
 }
 
@@ -372,7 +372,7 @@ body {
 
 .hero-content-header-sub-alt{
   font-size: 16px !important;
-  color: #fff;
+  color: #000;
 }
 
 .nav-bg{
@@ -437,7 +437,7 @@ body {
 /* ################### */
 
 div#slider-home .carousel-item::before {
-  background: #0000005c;
+  /* background: #0000005c; */
   content: "";
   position: absolute;
   width: 100%;
@@ -619,7 +619,7 @@ div#slider-home .carousel-item::before {
   font-weight: 700;
   line-height: 58px;
   font-size: 43px;
-  max-width: 528px;
+  max-width: 600px;
   text-align: center;
 }
 
