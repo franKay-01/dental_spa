@@ -742,3 +742,25 @@ div#slider-home .carousel-item::before {
   height: 26rem;
   width: 25rem;
 }
+
+@media screen and (max-width: 768px) {
+  .working-hours-inner{
+    left: 0px;
+  }
+
+  .footer-inner{
+    padding: 20px;
+  }
+
+  .call-block{
+    display: none !important;
+  }
+
+  .footer-title{
+    margin-bottom: 4px;
+  }
+
+  .banner-height{
+    height: 30rem;
+  }
+}

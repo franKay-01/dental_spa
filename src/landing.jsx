@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react';
-import Papa from "papaparse";
-import HeroLeftImage from './assets/hero_img.png'
-import HourImage from './assets/hero_img_alt.png'
 import Navbar from './components/navbar';
-import ArrowImg from './assets/arrow.png'
 import ToothImg from './assets/tooth.png'
-import ClockImg from './assets/clock.png'
 import BrushImg from './assets/calendar.jpg'
-import WorkingHoursImg from './assets/working_hours.jpg'
 import Footer from './components/footer';
 import ImageSlider from './components/imageSlider';
 import Loader from './components/loader';
@@ -21,7 +15,6 @@ import DCIOptions from './components/dentalChairOptions';
 export default function LandingPage(){
   const history = useNavigate();
   const [isLoading, setIsLoading] = useState(false)
-  const [data, setData] = useState([]);
   const [show, setIsShow] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
   const [category, setCategory] = useState("")
@@ -66,7 +59,7 @@ export default function LandingPage(){
   
   useEffect(() => {
     const fetchData = async () => {
-      const sheetId = '1N6E4SXmY38agoGfr23YDg98wZlB2U_Z4d8xDevQlPM8';
+      const sheetId = process.env.REACT_APP_SHEET_KEY
       const apiKey = process.env.REACT_APP_MASTER_KEY;
       const range = 'Sheet1';
       
@@ -165,7 +158,7 @@ export default function LandingPage(){
               <img src={ArrowImg} alt="Arrow" className="w-6 h-6 angle-down-icon dtransform"/>
             </a>
           </div> */}
-          <div className='flex flex-col lg:flex-row md:flex-row gap-4 invisible'>
+          <div className='flex flex-col lg:flex-row md:flex-row gap-4 invisible banner-height'>
             <div className='hero-content-inner'>
               <h1 className='hero-content-header in-down mb-4'>Welcome to Transform-MDS.</h1>
               <h1 className='hero-content-header-sub hero-content-header-sub-alt in-down mb-8'>
@@ -188,7 +181,7 @@ export default function LandingPage(){
         <div className='flex flex-col justify-center items-center'>
           <h1 className='section-header'>Our catalogue</h1>
           <p className='section-p'>Explore our comprehensive catalogue of medical and dental equipment at Transform-MDS.</p>
-          <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-12'>
+          <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-12 p-8'>
             <div onClick={() => showOptionSelector() } className='card gap-4 cursor-pointer'>
               <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
               <h1 className='section-link-title'>Dental Chairs</h1>
@@ -213,7 +206,7 @@ export default function LandingPage(){
         </div>
       </div>
       <div className='appointment-section m-auto flex justify-center'>
-        <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-2 gap-4'>
+        <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4'>
           <div className='appointment-form-block'>
             <h1 className='section-header section-header-alt'>Visit our showrooms</h1>
             <p className='section-p section-header-alt'>Schedule an appointment with us today by selecting a convenient time, and our team will confirm your booking promptly.</p>
@@ -298,7 +291,7 @@ export default function LandingPage(){
                 </a>
               </div>
             </div>
-            <div className='call-block'>
+            <div className='hidden call-block lg:block md:block'>
               <div className='phone-bg'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 special-color">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
@@ -313,10 +306,10 @@ export default function LandingPage(){
           </div>
         </div>
       </div>
-      <div className='blog-section flex justify-center'>
+      <div className='blog-section flex justify-center p-8'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md gap-4'>
           <h1 className='section-header section-header-alt section-header-max-width'>Latest Article From Our <span className='special-color'>Blog Post</span></h1>
-          <div className='grid grid-cols-3 gap-4 mt-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 mt-8'>
 
             {sheetData?.map((blogItem, index) => (
               <div key={index} className='flex flex-col gap-4'>

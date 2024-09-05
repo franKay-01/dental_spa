@@ -36,14 +36,14 @@ export default function Footer(){
 
   return (
     <div className="footer-inner">
-      <div className="flex flex-row justify-around">
+      <div className="flex flex-col lg:flex-row md:flex-row justify-around">
         <div className="flex flex-col gap-4">
           <img className="w-52" src={Logo} />
           <div className="flex flex-col gap-2">
             <Link to={'/privacy'} className="footer-text underline">Privacy policy</Link>
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-4 lg:mt-0 md:mt-0">
           <h1 className="footer-title">
             Contact Us
           </h1>
@@ -91,7 +91,7 @@ export default function Footer(){
             </div>
           </div>
         </div>
-        <div>
+        <div className="mt-4 lg:mt-0 md:mt-0">
           <h1 className="footer-title">
             Newsletter
           </h1>
