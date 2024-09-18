@@ -57,39 +57,35 @@ export default function LandingPage(){
 
   const [sheetData, setSheetData] = useState([]);
   
-  useEffect(() => {
-    const fetchData = async () => {
-      const sheetId = process.env.REACT_APP_SHEET_KEY
-      const apiKey = process.env.REACT_APP_MASTER_KEY;
-      const range = 'Sheet1';
-      
-      try {
-        const response = await axios.get(
-          `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`
-        );
-
-        const data = response.data.values
-        const headers = data[0];
-
-        const items = data.slice(1).map(row => {
-          return headers.reduce((acc, header, index) => {
-            acc[header] = row[index];
-            return acc;
-          }, {});
-        });
-
-        setSheetData(items);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   // useEffect(() => {
-  //   setIsLoading(false)
-  // }, [data])
+  //   const fetchData = async () => {
+  //     const sheetId = process.env.REACT_APP_SHEET_KEY
+  //     const apiKey = process.env.REACT_APP_MASTER_KEY;
+  //     const range = 'Sheet1';
+      
+  //     try {
+  //       const response = await axios.get(
+  //         `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`
+  //       );
+
+  //       const data = response.data.values
+  //       const headers = data[0];
+
+  //       const items = data.slice(1).map(row => {
+  //         return headers.reduce((acc, header, index) => {
+  //           acc[header] = row[index];
+  //           return acc;
+  //         }, {});
+  //       });
+
+  //       setSheetData(items);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -144,7 +140,6 @@ export default function LandingPage(){
   }, [])
 
   return (
-    
     <>
     { isLoading ? 
       <Loader/>
@@ -306,7 +301,7 @@ export default function LandingPage(){
           </div>
         </div>
       </div>
-      <div className='blog-section flex justify-center p-8'>
+      {/* <div className='blog-section flex justify-center p-8'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md gap-4'>
           <h1 className='section-header section-header-alt section-header-max-width'>Latest Article From Our <span className='special-color'>Blog Post</span></h1>
           <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 mt-8'>
@@ -327,7 +322,7 @@ export default function LandingPage(){
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       <Footer/>
       <ImageSlider show={show} handleClose={hideModal} category={category}/>
       <DCIOptions show={showOptions} handleClose={hideOptionModal} setAllCatalogue={getAllCatalogue} />
