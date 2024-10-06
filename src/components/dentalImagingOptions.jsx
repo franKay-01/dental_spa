@@ -1,7 +1,7 @@
-import ChairImg from '../assets/icons/1.png'
+import DentalImg from '../assets/icons/4.png'
 import './imageSlider.css'
 
-export default function DCIOptions({handleClose, show, setAllCatalogue}) {
+export default function DIIOptions({handleClose, show, setAllCatalogue}) {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
  
   return (
@@ -13,14 +13,14 @@ export default function DCIOptions({handleClose, show, setAllCatalogue}) {
           </svg>
         </div>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-12'>
-          <div onClick={() => { handleClose(); setAllCatalogue("care") }} className='card gap-4 cursor-pointer'>
-            <img src={ChairImg} className='w-12 h-12' alt="Tooth"/>
-            <h1 className='section-link-title'>Care Chairs</h1>
+          <div onClick={() => { handleClose(); setAllCatalogue("xray") }} className='card gap-4 cursor-pointer'>
+            <img src={DentalImg} className='w-12 h-12' alt="Tooth"/>
+            <h1 className='section-link-title'>X-Ray Devices</h1>
             <p>Explore our extensive range of budget-friendly dental chairs to support your dental services.</p>
           </div>
-          <div onClick={() => { handleClose(); setAllCatalogue("dci") }} className='card gap-4 cursor-pointer'>
-            <img src={ChairImg} className='w-12 h-12' alt="Tooth"/>
-            <h1 className='section-link-title'>DCI Chairs</h1>
+          <div onClick={() => { handleClose(); setAllCatalogue("scanners") }} className='card gap-4 cursor-pointer'>
+            <img src={DentalImg} className='w-12 h-12' alt="Tooth"/>
+            <h1 className='section-link-title'>Scanners</h1>
             <p>Explore our extensive range of budget-friendly dental chairs to support your practice.</p>
           </div>
         </div>

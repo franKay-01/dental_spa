@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 import Navbar from './components/navbar';
+import ChairImg from './assets/icons/1.png'
+import AutoClaveImg from './assets/icons/2.png'
+import DentalImg from './assets/icons/4.png'
+import OtherImg from './assets/icons/3.png'
 import ToothImg from './assets/tooth.png'
 import BrushImg from './assets/calendar.jpg'
 import Footer from './components/footer';
@@ -11,13 +15,27 @@ import 'slick-carousel/slick/slick';
 import { Slider } from './components/bannerSlider';
 import axios from 'axios';
 import DCIOptions from './components/dentalChairOptions';
+import DIIOptions from './components/dentalImagingOptions';
 
 export default function LandingPage(){
   const history = useNavigate();
   const [isLoading, setIsLoading] = useState(false)
   const [show, setIsShow] = useState(false)
+  const [showImagingOptions, setShowImagingOptions] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
   const [category, setCategory] = useState("")
+
+  const showImagingOptionModal = () => {
+    setShowImagingOptions(true)
+  }
+
+  const hideImagingOptionModal = () => {
+    setShowImagingOptions(false)
+  }
+
+  const showImagingOptionSelector = () => {
+    showImagingOptionModal()
+  }
 
   const showOptionModal = () => {
     setShowOptions(true)
@@ -176,24 +194,24 @@ export default function LandingPage(){
         <div className='flex flex-col justify-center items-center'>
           <h1 className='section-header'>Our catalogue</h1>
           <p className='section-p'>Explore our comprehensive catalogue of medical and dental equipment at Transform-MDS.</p>
-          <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-12 p-8'>
+          <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 mt-8 p-8'>
             <div onClick={() => showOptionSelector() } className='card gap-4 cursor-pointer'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
+              <img src={ChairImg} className='w-14 h-14' alt="Tooth"/>
               <h1 className='section-link-title'>Dental Chairs</h1>
               <p>Explore our extensive range of budget-friendly dental chairs to support your dental services.</p>
             </div>
             <div onClick={() => { getAllCatalogue("autoclave") }} className='card gap-4 cursor-pointer'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
+              <img src={AutoClaveImg} className='w-12 h-12' alt="Tooth"/>
               <h1 className='section-link-title'>Autoclaves</h1>
               <p>Explore our extensive range of budget-friendly dental chairs to support your practice.</p>
             </div>
-            <div onClick={() => { getAllCatalogue("xray") }} className='card gap-4 cursor-pointer'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
-              <h1 className='section-link-title'>X-Ray Machines</h1>
+            <div onClick={() => { showImagingOptionSelector() }} className='card gap-4 cursor-pointer'>
+              <img src={DentalImg} className='w-12 h-12' alt="Tooth"/>
+              <h1 className='section-link-title'>Dental Imaging</h1>
               <p>Explore our extensive range of budget-friendly products to support your medical and dental services.</p>
             </div>
             <div onClick={() => { getAllCatalogue("other") }} className='card gap-4 cursor-pointer'>
-              <img src={ToothImg} className='w-12 h-12' alt="Tooth"/>
+              <img src={OtherImg} className='w-12 h-12' alt="Tooth"/>
               <h1 className='section-link-title'>Other Equipment</h1>
               <p>Explore our extensive range of budget-friendly medical and dental supplies to support your medical and dental services.</p>
             </div>
@@ -326,6 +344,7 @@ export default function LandingPage(){
       <Footer/>
       <ImageSlider show={show} handleClose={hideModal} category={category}/>
       <DCIOptions show={showOptions} handleClose={hideOptionModal} setAllCatalogue={getAllCatalogue} />
+      <DIIOptions show={showImagingOptions} handleClose={hideImagingOptionModal} setAllCatalogue={getAllCatalogue} />
     </main>
     }
     
