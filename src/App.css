@@ -131,6 +131,14 @@ body {
   background-color: #f5f3ff;
 }
 
+h1, h2 {
+  color: #fff !important;
+}
+
+p{
+  color: #fff !important;
+}
+
 .form-field {
   height: 52px;
   margin-bottom: 0px;
