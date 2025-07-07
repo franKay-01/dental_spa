@@ -22,7 +22,7 @@ export default function Footer(){
     const formElement = document.querySelector("form")
     const formData = new FormData(formElement)
 
-    fetch('https://script.google.com/macros/s/AKfycbw6XAsfLyBKiNwdipdDamiucvaCSzw6Ly0BwQQnmer70gyWBtNs6Ui6md7OpUdjT79jHA/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbwxLmDajOkPTlCTTaEAoOCfNxr4WocitlsMZDkGbu5qVuznhXYmipsJj4E6k16SSmvj0A/exec',{
       method: "POST",
       body: formData
     }).then(res => {

@@ -56,33 +56,11 @@ export default function Navbar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden mobile-nav-bg">
-            <div className="px-2 pt-2 pb-3">
-              <Disclosure.Button className="inline-flex place-x mt-8 items-center justify-right p-2 rounded-md text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                <span className="sr-only">Open main menu</span>
-                {open ? (
-                  <XIcon
-                    className="block h-12 w-12 text-white"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <MenuIcon
-                    className="block h-12 w-12 text-white"
-                    aria-hidden="true"
-                  />
-                )}
-              </Disclosure.Button>
-              <div className="mt-24"></div>
-              {mobile_navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className="block mobile-nav-text px-3 py-2"
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
+            <div className="px-2 pt-2 pb-3 bg-[#fff]">
+              <div className="flex flex-row gap-1">
+                  <img src={PhoneImg} className="w-7 h-7" alt="phone" />
+                  <h1 className="hero-content-header-sub">+233 501 289 226</h1>
+                </div>
             </div>
           </Disclosure.Panel>
         </>
