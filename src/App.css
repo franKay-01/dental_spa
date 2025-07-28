@@ -631,6 +631,15 @@ div#slider-home .carousel-item::before {
   text-align: center;
 }
 
+.section-header-subs{
+  color: #0b0f21;
+  font-weight: 700;
+  line-height: 38px;
+  font-size: 35px;
+  max-width: 600px;
+  text-align: center;
+}
+
 .section-p{
   line-height: 25px;
   max-width: 528px;

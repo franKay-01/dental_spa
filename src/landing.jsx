@@ -24,6 +24,35 @@ export default function LandingPage(){
   const [showImagingOptions, setShowImagingOptions] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
   const [category, setCategory] = useState("")
+  const [email, setEmail] = useState("")
+
+  const handleTextChange = e => {
+    setEmail(e.target.value)
+  }
+
+  const submitNewsletter = e => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    if (email === "") {
+      setIsLoading(false)
+      return
+    }
+
+    const formElement = document.querySelector("form")
+    const formData = new FormData(formElement)
+
+    fetch('https://script.google.com/macros/s/AKfycbwxLmDajOkPTlCTTaEAoOCfNxr4WocitlsMZDkGbu5qVuznhXYmipsJj4E6k16SSmvj0A/exec',{
+      method: "POST",
+      body: formData
+    }).then(res => {
+      const { status } = res;
+      if (status === 200) {
+        setEmail("")
+        setIsLoading(false)
+      }
+    }).catch(error => console.log(error))
+  }
 
   const showImagingOptionModal = () => {
     setShowImagingOptions(true)
@@ -106,7 +135,7 @@ export default function LandingPage(){
   // }, []);
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    // window.scrollTo(0,0)
 
     $.fn.menumaker = function(options) {
       var cssmenu = $(this),
@@ -219,14 +248,14 @@ export default function LandingPage(){
         </div>
       </div>
       <div className='appointment-section m-auto flex justify-center'>
-        <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4'>
+        <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4'>
           <div className='appointment-form-block'>
-            <h1 className='section-header section-header-alt'>Visit our showrooms</h1>
-            <p className='section-p section-header-alt'>Schedule an appointment with us today by selecting a convenient time, and our team will confirm your booking promptly.</p>
+            <h1 className='section-header section-header-alt section-header-subs'>Book for webinars, events</h1>
+            <p className='section-p section-header-alt'>Schedule webinars, events with us today by selecting a convenient time, and our team will confirm your booking promptly.</p>
             
-            <a target="blank" href="https://calendly.com/invataafrica-info/30min" className='flex flex-row gap-4 button-green-primary justify-between mt-8'>
-              <h1>Book appointment now</h1>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+            <a target="blank" href="https://calendly.com/invataafrica-info/30min" className='flex flex-row gap-4 button-green-primary hover:bg-[#5a48e0] justify-between mt-8'>
+              <h1 className='!text-[#fff]'>Book now</h1>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" className="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
               </svg>
             </a>
@@ -234,7 +263,27 @@ export default function LandingPage(){
           <div className='flex justify-center p-4'>
             <img className='dtransform appointment-img-height b-radius' src={BrushImg} alt="Brush" />
           </div>
-          
+          <div className='appointment-form-block'>
+            <h1 className='section-header section-header-alt section-header-subs'>Newsletter</h1>
+            <p className='section-p section-header-alt'>Subscribe for our monthly newsletter</p>
+
+            <form className="flex flex-col gap-4 mt-8" onSubmit={e => submitNewsletter(e)}>
+              <input onChange={handleTextChange} value={email} type='email' name="Emails" placeholder='Email address' className='form-field focus:border-purple-800'/>
+              {
+                isLoading ? 
+                <div className='flex flex-row gap-4 footer-green-primary justify-between w-3/5'>
+                  <h1>... loading</h1>
+                </div>:
+                <button type="submit" className='flex flex-row hover:bg-[#5a48e0] gap-4 footer-green-primary justify-between '>
+                  <h1 className='!text-[#fff]'>Susbcribe now</h1>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                  </svg>
+                </button>
+              }
+              
+            </form>
+          </div>
         </div>
       </div>
       {/* <div className='about-us-section m-auto flex justify-center'>
