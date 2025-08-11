@@ -250,8 +250,8 @@ export default function LandingPage(){
       <div className='appointment-section m-auto flex justify-center'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4'>
           <div className='appointment-form-block'>
-            <h1 className='section-header section-header-alt section-header-subs'>Book for webinars, events</h1>
-            <p className='section-p section-header-alt'>Schedule webinars, events with us today by selecting a convenient time, and our team will confirm your booking promptly.</p>
+            <h1 className='section-header section-header-alt section-header-subs'>Book for upcoming events</h1>
+            <p className='section-p section-header-alt'>Schedule for upcoming events with us today by selecting a convenient time, and our team will confirm your booking promptly.</p>
             
             <a target="blank" href="https://calendly.com/invataafrica-info/30min" className='flex flex-row gap-4 button-green-primary hover:bg-[#5a48e0] justify-between mt-8'>
               <h1 className='!text-[#fff]'>Book now</h1>
@@ -265,7 +265,7 @@ export default function LandingPage(){
           </div>
           <div className='appointment-form-block'>
             <h1 className='section-header section-header-alt section-header-subs'>Newsletter</h1>
-            <p className='section-p section-header-alt'>Subscribe for our monthly newsletter</p>
+            <p className='section-p section-header-alt'>Subscribe to our monthly newsletter</p>
 
             <form className="flex flex-col gap-4 mt-8" onSubmit={e => submitNewsletter(e)}>
               <input onChange={handleTextChange} value={email} type='email' name="Emails" placeholder='Email address' className='form-field focus:border-purple-800'/>
@@ -308,66 +308,14 @@ export default function LandingPage(){
         </div>
       </div> */}
       
-      <div className='working-hours-section'>
+      {/* BANNER INCOMING */}
+      {/* <div className='working-hours-section'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 relative m-auto'>
           <div className='img-bg relative'>
-            <div className='working-hours-inner'>
-              <h1 className='working-hour-title'>Working hours</h1>
-              <p className='working-text'>Standard working hours.</p>
-              <div className='work-schedule-wrapper'>
-                <div className='single-work-schedule'>
-                  <p>Sunday</p>
-                  <p className='red-color'>closed</p>
-                </div>
-                <div className='single-work-schedule'>
-                  <p>Monday</p>
-                  <p>9.00 am - 5.00 pm</p>
-                </div>
-                <div className='single-work-schedule'>
-                  <p>Tuesday</p>
-                  <p>9.00 am - 5.00 pm</p>
-                </div>
-                <div className='single-work-schedule'>
-                  <p>Wednesday</p>
-                  <p>9.00 am - 5.00 pm</p>
-                </div>
-                <div className='single-work-schedule'>
-                  <p>Thursday</p>
-                  <p>9.00 am - 5.00 pm</p>
-                </div>
-                <div className='single-work-schedule'>
-                  <p>Friday</p>
-                  <p>9.00 am - 5.00 pm</p>
-                </div>
-                <div className='single-work-schedule last-item'>
-                  <p>Saturday</p>
-                  <p className='red-color'>closed</p>
-                </div>
-              </div>
-              <div className="booking-button-block">
-                <a target="blank" href="https://calendly.com/invataafrica-info/30min"  className="booking-button w-inline-block">
-                  <div className="w-full">Booking Now</div>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div className='hidden call-block lg:block md:block'>
-              <div className='phone-bg'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 special-color">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                </svg>
-              </div>
-              
-              <div className="call-number-block">
-                <div className="call-text">Call Now:</div>
-                <a href="tel:+12345678901" className="call-number-link">+233 501 289 226</a>
-              </div>
-            </div>
+          
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <div className='blog-section flex justify-center p-8'>
         <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md gap-4'>
           <h1 className='section-header section-header-alt section-header-max-width'>Latest Article From Our <span className='special-color'>Blog Post</span></h1>

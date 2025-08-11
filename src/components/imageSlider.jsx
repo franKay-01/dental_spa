@@ -24,7 +24,7 @@ export default function ImageSlider({handleClose,  show, category}) {
       images = importAll(require.context('../assets/other_equipment', false, /\.(png|jpe?g|svg)$/));
       break;
     case "scanners":
-      images = importAll(require.context('../assets/other_equipment', false, /\.(png|jpe?g|svg)$/));
+      images = importAll(require.context('../assets/scanners', false, /\.(png|jpe?g|svg)$/));
       break;
     default:
       images = importAll(require.context('../assets/dci_chairs', false, /\.(png|jpe?g|svg)$/));
