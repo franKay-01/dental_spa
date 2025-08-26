@@ -120,8 +120,8 @@ body {
 }
 
 .appointment-section {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .appointment-form-block {
@@ -545,9 +545,14 @@ div#slider-home .carousel-item::before {
   background-color: #f5f3ff;
 }
 
+.blog-card{
+  width: 25rem;
+  text-wrap: auto;
+}
+
 .media-fit-image {
   width: 100%;
-  height: 15rem;
+  height: 10rem;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 12px;

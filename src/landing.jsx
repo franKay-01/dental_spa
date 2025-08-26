@@ -25,6 +25,21 @@ export default function LandingPage(){
   const [showOptions, setShowOptions] = useState(false)
   const [category, setCategory] = useState("")
   const [email, setEmail] = useState("")
+  const [filters, setFilters] = useState({
+    category: "Any category",
+    status: "Upcoming",
+    year: "All years",
+    month: "All months",
+  });
+
+  const handleChange = (field, value) => {
+    setFilters((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleBrowse = () => {
+    console.log("Filters applied:", filters);
+    // You can fetch data or filter list here
+  };
 
   const handleTextChange = e => {
     setEmail(e.target.value)
@@ -247,9 +262,130 @@ export default function LandingPage(){
           </div>
         </div>
       </div>
-      <div className='appointment-section m-auto flex justify-center'>
-        <div className='max-w-screen-sm lg:max-w-screen-lg md:max-w-screen-md grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4'>
-          <div className='appointment-form-block'>
+      <div className='appointment-section m-auto flex pl-32 pr-32'>
+        <div className=' grid grid-cols-1 gap-4'>
+          <h1 className='section-header section-header-alt section-header-subs'>Events hub</h1>
+          <div className='flex'>
+            <div className="flex flex-row items-center bg-white shadow rounded-2xl p-3 gap-[10rem]">
+              {/* Category */}
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold">Category</label>
+                <select
+                  value={filters.category}
+                  onChange={(e) => handleChange("category", e.target.value)}
+                  className="text-gray-600 bg-transparent outline-none cursor-pointer"
+                >
+                  <option>Any category</option>
+                  <option>Music</option>
+                  <option>Sports</option>
+                  <option>Business</option>
+                </select>
+              </div>
+
+              {/* Event Status */}
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold">Event Status</label>
+                <select
+                  value={filters.status}
+                  onChange={(e) => handleChange("status", e.target.value)}
+                  className="text-gray-600 bg-transparent outline-none cursor-pointer"
+                >
+                  <option>Upcoming</option>
+                  <option>Ongoing</option>
+                  <option>Past</option>
+                </select>
+              </div>
+
+              {/* Year */}
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold">Year</label>
+                <select
+                  value={filters.year}
+                  onChange={(e) => handleChange("year", e.target.value)}
+                  className="text-gray-600 bg-transparent outline-none cursor-pointer"
+                >
+                  <option>All years</option>
+                  <option>2025</option>
+                  <option>2024</option>
+                  <option>2023</option>
+                </select>
+              </div>
+
+              {/* Month */}
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold">Month</label>
+                <select
+                  value={filters.month}
+                  onChange={(e) => handleChange("month", e.target.value)}
+                  className="text-gray-600 bg-transparent outline-none cursor-pointer"
+                >
+                  <option>All months</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                </select>
+              </div>
+
+              {/* Browse Button */}
+              <button
+                onClick={handleBrowse}
+                className="bg-[#5a48e0] hover:bg-[#67b930] text-white font-semibold px-6 py-2 rounded-lg"
+              >
+                Browse
+              </button>
+            </div>
+          </div>
+          <div className='flex flex-row overflow-x-auto gap-8 whitespace-nowrap'>
+            <div className='flex flex-col gap-4 blog-card min-w-[300px]'>
+              <img src={'https://images.pexels.com/photos/15866050/pexels-photo-15866050.jpeg'} alt="article img" className='media-fit-image'/>
+              <div className='flex justify-between items-center'>
+                <h1 className='date-text'>24-12-2025</h1>
+                <h1>By: Fred (Admin)</h1>
+              </div>
+              <h1 className='blog-title'>Upcoming Story</h1>
+              <p>Feeling confident, the hare decided to take a nap under a tree while the tortoise kept going, step by step. When the hare woke up, he was shocked to see the tortoise crossing the finish line. The tortoise had won the race!</p>
+              <button className='blog-details-link'>
+                Read more
+              </button>
+            </div>
+            <div className='flex flex-col gap-4 blog-card min-w-[300px]'>
+              <img src={'https://images.pexels.com/photos/15866050/pexels-photo-15866050.jpeg'} alt="article img" className='media-fit-image'/>
+              <div className='flex justify-between items-center'>
+                <h1 className='date-text'>24-12-2025</h1>
+                <h1>By: Fred (Admin)</h1>
+              </div>
+              <h1 className='blog-title'>Upcoming Story</h1>
+              <p>Feeling confident, the hare decided to take a nap under a tree while the tortoise kept going, step by step. When the hare woke up, he was shocked to see the tortoise crossing the finish line. The tortoise had won the race!</p>
+              <button className='blog-details-link'>
+                Read more
+              </button>
+            </div>
+            <div className='flex flex-col gap-4 blog-card min-w-[300px]'>
+              <img src={'https://images.pexels.com/photos/15866050/pexels-photo-15866050.jpeg'} alt="article img" className='media-fit-image'/>
+              <div className='flex justify-between items-center'>
+                <h1 className='date-text'>24-12-2025</h1>
+                <h1>By: Fred (Admin)</h1>
+              </div>
+              <h1 className='blog-title'>Upcoming Story</h1>
+              <p>Feeling confident, the hare decided to take a nap under a tree while the tortoise kept going, step by step. When the hare woke up, he was shocked to see the tortoise crossing the finish line. The tortoise had won the race!</p>
+              <button className='blog-details-link'>
+                Read more
+              </button>
+            </div>
+            <div className='flex flex-col gap-4 blog-card min-w-[300px]'>
+              <img src={'https://images.pexels.com/photos/15866050/pexels-photo-15866050.jpeg'} alt="article img" className='media-fit-image'/>
+              <div className='flex justify-between items-center'>
+                <h1 className='date-text'>24-12-2025</h1>
+                <h1>By: Fred (Admin)</h1>
+              </div>
+              <h1 className='blog-title'>Upcoming Story</h1>
+              <p>Feeling confident, the hare decided to take a nap under a tree while the tortoise kept going, step by step. When the hare woke up, he was shocked to see the tortoise crossing the finish line. The tortoise had won the race!</p>
+              <button className='blog-details-link'>
+                Read more
+              </button>
+            </div>
+          </div>
+          {/* <div className='appointment-form-block'>
             <h1 className='section-header section-header-alt section-header-subs'>Book for upcoming events</h1>
             <p className='section-p section-header-alt'>Schedule for upcoming events with us today by selecting a convenient time, and our team will confirm your booking promptly.</p>
             
@@ -283,7 +419,7 @@ export default function LandingPage(){
               }
               
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* <div className='about-us-section m-auto flex justify-center'>
